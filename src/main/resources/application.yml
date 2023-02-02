@@ -6,3 +6,6 @@ server:
     threads:
       max: 50
       min-spare: 5
+
+sharedlibrary:
+  greeting: Welcome to the shared library book catalog !
