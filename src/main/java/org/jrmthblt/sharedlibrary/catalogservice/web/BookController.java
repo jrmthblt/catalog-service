@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 // Stereotype annotation marking a class as a Spring component and a source of handlers for REST endpoints
 @RestController
 // Identifies the root path mapping URI for which the class provides handlers ("/books")
@@ -42,7 +44,7 @@ public class BookController {
 	// Returns a 201 status if the book is created successfully
 	@ResponseStatus(HttpStatus.CREATED)
 	// @RequestBody binds a method parameter to the body of a web request
-	public Book post(@RequestBody Book book) {
+	public Book post(@Valid @RequestBody Book book) {
 		return bookService.addBookToCatalog(book);
 	}
 
@@ -56,7 +58,7 @@ public class BookController {
 
 	// Maps HTTP PUT requests to the specific handler method
 	@PutMapping("{isbn}")
-	public Book put(@PathVariable String isbn, @RequestBody Book book) {
+	public Book put(@Valid @PathVariable String isbn, @RequestBody Book book) {
 		return bookService.editBookDetails(isbn, book);
 	}
 }
