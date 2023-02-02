@@ -1,4 +1,4 @@
-package org.jrmthblt.sharedlibrary.catalogservice;
+package org.jrmthblt.sharedlibrary.catalogservice.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
