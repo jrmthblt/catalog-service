@@ -43,6 +43,12 @@ public class BookService {
 		return bookRepository.findByIsbn(isbn)
 				.map(existingBook -> {
 					var bookToUpdate = new Book(
+							existingBook.id(),
+							existingBook.version(),
+							existingBook.createdBy(),
+							existingBook.lastModifiedBy(),
+							existingBook.createdDate(),
+							existingBook.lastModifiedDate(),
 							existingBook.isbn(),
 							book.title(),
 							book.author());

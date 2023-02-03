@@ -29,7 +29,7 @@ class BookValidationTests {
 	@Test
 	void whenAllFieldsCorrectThenValidationSucceeds() {
 		var book =
-				new Book("1234567890", "Title", "Author");
+				Book.of("1234567890", "Title", "Author");
 		Set<ConstraintViolation<Book>> violations = validator.validate(book);
 		// Asserts that there is no validation error
 		assertThat(violations).isEmpty();
@@ -39,7 +39,7 @@ class BookValidationTests {
 	@Test
 	void whenIsbnDefinedButIncorrectThenValidationFails() {
 		var book =
-				new Book("a234567890", "Title", "Author");
+				Book.of("a234567890", "Title", "Author");
 		Set<ConstraintViolation<Book>> violations = validator.validate(book);
 		// Asserts that the violated validation constraint is about the incorrect ISBN
 		assertThat(violations).hasSize(1);

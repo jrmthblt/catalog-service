@@ -19,9 +19,9 @@ public class BookDataLoader {
 	// The test data generation is triggered when an ApplicationReadyEvent is sent—that is when the application startup phase is completed.
 	@EventListener(ApplicationReadyEvent.class)
 	public void loadBookTestData() {
-		var book1 = new Book("1234567891", "Northern Lights",
+		var book1 = Book.of("1234567891", "Northern Lights",
 				"Lyra Silverstar");
-		var book2 = new Book("1234567892", "Polar Journey",
+		var book2 = Book.of("1234567892", "Polar Journey",
 				"Iorek Polarson");
 		bookRepository.save(book1);
 		bookRepository.save(book2);

@@ -50,6 +50,10 @@ kubectl delete service catalog -service
 kubectl delete deployment catalog -service
 minikube stop
 
+## Persistence with PostgreSQL in Docker
+
+docker run -d --name sharedlibrary-postgres -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_DB=sharedlibrarydb_catalog -p 5432:5432 postgres:14.4
+
 ## Structurizr DSL
 
 workspace {
